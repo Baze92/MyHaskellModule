@@ -1,4 +1,4 @@
-module MyHaskellModule.Math
+module Math
 (replacer
 	,rightTriangles
 	,scaleneTriangles
