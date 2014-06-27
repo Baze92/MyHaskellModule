@@ -11,7 +11,8 @@ module Math
     ,seriesGeneric
     ,sumFirstN
     ,sumFirstNSquares
-    ,sumFirstGeneric
+    ,sumFirstNGeneric
+    ,fibo
     ) where
 
     replacer k = [ if x `mod` 3 == 1 then "3Div" else "nay" | x <- k, x /= 15]
@@ -62,14 +63,13 @@ module Math
         in  pow + sumFirstNGeneric (a-1) q  
         
 
-    --fibo n = [ if k == 1 then 1 else foldl (+) 0 (fibo (n-1))| k <- [1..n] ]  
---   :: (Num a) => a -> [a]
---    --fibo 0 = [0]
---    fibo 1 = [1]
---    fibo 2 = [1,1]
---    fibo 3 = [1,1,2]
---    fibo n = fibo (n-1) + fibo (n-2)
---    fibo 
+    -- #initiated #DidAFibonacci
+    fibonacci n = [ fibo k | k <- [1..n]]
+
+    fibo 0 = 0
+    fibo 1 = 1
+    fibo n = fibo (n-1) + fibo (n-2)
+    
 
 
 
