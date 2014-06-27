@@ -5,7 +5,7 @@ module Math
     ,vectorAdd2D
     ,vectorAdd3D
     ,maxInList
-    ,largestMultiple42
+    ,largestMultiple
     ,factorial
     ,series2
     ,seriesGeneric
@@ -31,9 +31,9 @@ module Math
     maxInList [z] = z
     maxInList (z:zs) = max z (maxInList zs)
 
-    largestMultiple42 :: (Integral a) => a
-    largestMultiple42 = head (filter p [10000,9999..])
-        where p x = x `mod` 42 == 0
+    largestMultiple :: (Integral a) => a -> a 
+    largestMultiple x = head (filter p [10000,9999..])
+        where p k = k `mod` x == 0
 
     factorial :: (Integral a) => a -> a
     factorial 0 = 1
@@ -54,9 +54,29 @@ module Math
         in  (a^2) + sumFirstNSquares (a-1)
 
 
-    sumFirstGeneric :: (Integral n) => n -> n -> n
-    sumFirstGeneric 0 q = 0
-    sumFirstGeneric p q =
+    sumFirstNGeneric :: (Integral n) => n -> n -> n
+    sumFirstNGeneric 0 q = 0
+    sumFirstNGeneric p q =
         let a = p
             pow = a ^ q
-        in  pow + sumFirstGeneric (a-1) q    
+        in  pow + sumFirstNGeneric (a-1) q  
+        
+
+    --fibo n = [ if k == 1 then 1 else foldl (+) 0 (fibo (n-1))| k <- [1..n] ]  
+--   :: (Num a) => a -> [a]
+--    --fibo 0 = [0]
+--    fibo 1 = [1]
+--    fibo 2 = [1,1]
+--    fibo 3 = [1,1,2]
+--    fibo n = fibo (n-1) + fibo (n-2)
+--    fibo 
+
+
+
+
+
+
+
+
+
+
