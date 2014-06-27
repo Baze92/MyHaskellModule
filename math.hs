@@ -65,7 +65,6 @@ module Math
 
     -- #initiated #DidAFibonacci
     fibonacci n = [ fibo k | k <- [1..n]]
-
     fibo 0 = 0
     fibo 1 = 1
     fibo n = fibo (n-1) + fibo (n-2)
