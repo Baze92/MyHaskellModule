@@ -4,6 +4,11 @@ module NNProb2
 	,decodeModified
 	,dupli
 	,repli
+	,dropEvery
+	,split
+	,slice
+	,rotate
+	,removeAt
 	)
 	where
 	import Data.List
@@ -24,3 +29,35 @@ module NNProb2
 
 	repli []_ = []
 	repli xs b = concat [replicate b a | a<-xs]
+
+	dropEvery xs a
+ 	 	 | length xs < a = xs
+ 		 | otherwise     = take (a-1) xs ++ dropEvery (drop a xs) a
+
+ 	split xs a = splitAt a xs
+
+ 	slice xs a b = fst (splitAt (b-2) (snd (splitAt (a-1) xs)))
+
+ 	rotate xs a 
+ 		| a > 0  = snd (splitAt (a) xs) ++ fst (splitAt (a) xs)
+ 		| a < 0  = snd (splitAt ((length xs)+a) xs) ++ fst (splitAt ((length xs)+a) xs)
+ 		| otherwise = xs
+
+ 	removeAt a xs = (xs !! (a-1), take (a-1) xs ++ drop a xs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
