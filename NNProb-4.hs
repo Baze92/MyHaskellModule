@@ -26,4 +26,4 @@ module NNProb4
 			| a `rem` 2 == 0   = head [(x,y) | x <- (primes 2 a), let y = a-x, isPrime y ]
 			| otherwise  = error "Does not hold for odd numbers"
 
-	goldbachList a b = [goldbach c | c <- [a..b], even(c)]
+	goldbachList a b c = [goldbach d | d <- [a..b], even(d), fst(goldbach d) > c, snd(goldbach d) > c]
